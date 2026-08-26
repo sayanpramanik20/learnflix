@@ -1,6 +1,6 @@
 // Thin wrapper over the FastAPI backend. One function per endpoint, so a
 // component never has to know the URL shape or repeat error handling.
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8001";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
 
 async function request(path, options = {}) {
   const token = localStorage.getItem("ai_tutor_token");
