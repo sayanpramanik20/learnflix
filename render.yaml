@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: learnflix-api
+    runtime: python
+    rootDir: ai-tutor-app/backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    plan: free
+    envVars:
+      - key: DATA_ENCRYPTION_KEY
+        generateValue: true
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemma-4-26b-a4b-it
+      - key: GEMINI_SEARCH_MODEL
+        value: gemini-3.6-flash
